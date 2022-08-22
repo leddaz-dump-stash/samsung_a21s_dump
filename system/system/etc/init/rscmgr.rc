@@ -1,0 +1,7 @@
+# rscmgr rc file
+
+on property:sys.readahead.resource=1
+    readahead /system/app/HoneyBoard/oat/arm64/HoneyBoard.odex --fully
+    readahead /vendor/lib64/libexynoscamera3.so --fully
+    readahead /system/priv-app/SecSettings/SecSettings.apk --fully
+    setprop sys.readahead.resource 0

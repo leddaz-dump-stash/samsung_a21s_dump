@@ -1,0 +1,19 @@
+{
+  "Sysfs": [
+    {
+      "SysfsId": "0x00201000",
+      "SysfsName": "TOUCH_HEAD",
+      "Path": "/sys/class/input_booster/head"
+    },
+    {
+      "SysfsId": "0x00201100",
+      "SysfsName": "TOUCH_TAIL",
+      "Path": "/sys/class/input_booster/tail"
+    },
+    {
+      "SysfsId": "0x00201200",
+      "SysfsName": "TOUCH_LEVEL",
+      "Path": "/sys/class/input_booster/level"
+    }
+  ]
+}

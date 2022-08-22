@@ -1,0 +1,2 @@
+on early-boot
+    verity_update_state

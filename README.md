@@ -1,0 +1,14 @@
+# a21snsxx-user 12 SP1A.210812.016 A217FXXU8DVF6 release-keys
+- manufacturer: 
+- platform: universal3830
+- codename: a21s
+- flavor: a21snsxx-user
+- release: 12
+- id: SP1A.210812.016
+- incremental: A217FXXU8DVF6
+- tags: release-keys
+- fingerprint: samsung/a21snsxx/a21s:12/SP1A.210812.016/A217FXXU8DVF6:user/release-keys
+- is_ab: false
+- brand: samsung
+- branch: a21snsxx-user-12-SP1A.210812.016-A217FXXU8DVF6-release-keys
+- repo: samsung_a21s_dump
