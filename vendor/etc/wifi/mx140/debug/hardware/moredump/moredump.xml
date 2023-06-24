@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+(c) SCSC 2018, definitions for moredump4: chilli (nacho) platform
+-->
+
+<moredump4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.samsung.com ../Moredump.xsd">
+  <target name="chilli" aka="mxl152" idat="51000000" chipid="A7" firmware="80000000"
+    comment="http://confluence/display/NACHO/Maxwell152+Memory+Map">
+    <!-- Define the mmap range - DO NOT CHANGE THIS -->
+    <mmap startAddr="80000000" endAddr="807FFFFF" dev="/dev/mx_0_mmap"/>
+
+    <cpu name="CortexR4" xml="cortexR4.xml">
+        <instance t32API="20001" t32GDB="30001" dev="/dev/mx_0_r4_gdb"/>
+        <extraXml name ="VIC" xml="vic0_registers.xml"/>
+        <!-- Memory specific to (and will only be read via) CortexR4 -->
+        <memory startAddr="00000000" endAddr="00007fff" name="ATCM" comment="32K"/>
+        <memory startAddr="00020000" endAddr="0002ffff" name="BTCM" comment="64K"/>
+
+        <!-- Add subsystem elements for each shared mailbox -->
+        <subsystem name="MAILBOX_CP2WLBT" xml="mb_cp2wlbt_registers.xml"/>
+        <subsystem name="GNSS mailbox (GNSS2WLBT)" xml="mb_wlbt2gnss_registers.xml"/>
+        <subsystem name="APM mailbox (MAILBOX_APM2WLBT)" xml="mb_apm2wlbt_registers.xml"/>
+        <subsystem name="AP mailbox (MAILBOX_AP2WLBT)" xml="mb_ap2wlbt_registers.xml"/>
+        <subsystem name="A-BOX mailbox (MAILBOX_WLBT2ABOX)" xml="mb_wlbt2abox_registers.xml"/>
+        <subsystem name="Sensor Hub mailbox (MAILBOX_WLBT2CHUB)" xml="mb_shub2wlbt_registers.xml"/>
+    </cpu>
+
+    <!--  Memory that can be read via any CPU (and possibly mmap)  -->
+    <memory startAddr="08000000" endAddr="0801AFFF" name="RAMSB" comment="108KB" />
+    <memory startAddr="10000000" endAddr="10017FFF" name="RAMSW" comment="96KB" />
+    <memory startAddr="80000000" endAddr="807FFFFF" name="DRAM" comment="8MB" />
+
+    <subsystem name="btwl" aka="peri" xml="peri_registers.xml"/>
+  </target>
+
+  <rfchips bt_speedy="55010000" wl_speedy="50120000">
+    <rfchip name="jar" idat="0000" chipid="B1" interface="speedy" comment="S612">
+      <version majorminor="10" xml="rf_chip_registers.xml" comment="S612 EVT1"/>
+    </rfchip>
+  </rfchips>
+</moredump4>
