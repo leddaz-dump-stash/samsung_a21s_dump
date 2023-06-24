@@ -1,0 +1,14 @@
+kernel=kernel
+ramdisk=ramdisk
+dt=dt.img
+page_size=2048
+kernel_size=31561744
+ramdisk_size=1464606
+dtb_size=2
+base_addr=0x10000000
+kernel_offset=0x00008000
+ramdisk_offset=0x01000000
+tags_offset=0x00000100
+cmd_line='androidboot.hardware=exynos850 androidboot.selinux=enforce loop.max_part=7'
+board="SRPTA21C008"
+format=gzip
