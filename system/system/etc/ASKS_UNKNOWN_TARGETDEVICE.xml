@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<VERSION value="20220831"/>
+<LIST>
+    <TARGET value="SM-A325N">
+        <DEVICE name="NA"/>
+    </TARGET>
+    <CERTTARGET value="SM-G981N">
+        <DEVICE name="NA"/>
+    </CERTTARGET>
+    <CERTTARGET value="SM-G986N">
+        <DEVICE name="NA"/>
+    </CERTTARGET>
+    <CERTTARGET value="SM-G988N">
+        <DEVICE name="NA"/>
+    </CERTTARGET>
+    <CERTTARGET value="SM-A325N">
+        <DEVICE name="NA"/>
+    </CERTTARGET>
+    <CERTTARGET value="SM-G991N">
+        <DEVICE name="NA"/>
+    </CERTTARGET>
+    <CERTTARGET value="SM-G996N">
+        <DEVICE name="NA"/>
+    </CERTTARGET>
+    <CERTTARGET value="SM-G998N">
+        <DEVICE name="NA"/>
+    </CERTTARGET>
+    <ZIPTARGET value="ALL">
+        <DEVICE name="NA"/>
+    </ZIPTARGET>
+    <ZIPCERTTARGET value="ALL">
+        <DEVICE name="NA"/>
+    </ZIPCERTTARGET>
+</LIST>

@@ -1,0 +1,22 @@
+# Android fstab file.
+#<src>                  <mnt_point>         <type>    <mnt_flags and options>                               <fs_mgr_flags>
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+
+system                                                  /system               ext4      ro,barrier=1                                        wait,logical,first_stage_mount,avb=vbmeta,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey
+vendor                                                  /vendor               ext4      ro,barrier=1                                        wait,logical,first_stage_mount,avb
+
+/dev/block/platform/12100000.dwmmc0/by-name/boot        /boot                 emmc      defaults                                            defaults
+/dev/block/platform/12100000.dwmmc0/by-name/cache	/cache	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic	wait,check
+/dev/block/platform/12100000.dwmmc0/by-name/userdata	/data	f2fs	noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678	latemount,wait,check,quota,reservedsize=128M,fileencryption=ice,checkpoint=fs
+/dev/block/platform/12100000.dwmmc0/by-name/efs	/mnt/vendor/efs	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic	wait,check
+/dev/block/platform/12100000.dwmmc0/by-name/persist	/mnt/vendor/persist	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic	wait,notrim,check
+/dev/block/platform/12100000.dwmmc0/by-name/misc	/misc	emmc	defaults	defaults,first_stage_mount
+/dev/block/platform/12100000.dwmmc0/by-name/recovery    /recovery             emmc      defaults                                            defaults
+
+/dev/block/platform/12100000.dwmmc0/by-name/metadata	/metadata	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic,sync	wait,check,formattable,first_stage_mount
+#
+# VOLD
+/devices/platform/13500000.dwmmc2/mmc_host*            auto    auto    default voldmanaged=sdcard1:auto,encryptable=
+/devices/platform/13600000.usb*				auto	vfat	default	voldmanaged=usb1:auto
+/devices/platform/13600000.usb/13600000.dwc3*		auto	vfat	default	voldmanaged=usb2:auto
